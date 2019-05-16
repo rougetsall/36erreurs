@@ -12,6 +12,7 @@ class Nominee{
   }
 
   public static function getWinners(){
+    $pdo= \ThirtySix\Connexion::getInstance();
     $q = $pdo->prepare('SELECT * FROM '.self::TABLE_NAME.' WHERE winner = 1');
     $winners = $q->execute();
     return $q->fetchAll();
